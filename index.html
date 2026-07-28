@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#F65C7A" />
+
+  <!-- ── SEO ── -->
+  <title>Primavera Events Group — Brindis Especial</title>
+  <meta name="description" content="Estás invitado a un brindis especial de Primavera Events Group. Toca para abrir tu invitación." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- ── Open Graph ── -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Primavera Events Group — Brindis Especial" />
+  <meta property="og:description" content="Richard Hernández y Jessy Sandoval te invitan a celebrar. Toca para abrir tu invitación." />
+  <meta property="og:locale"      content="es_MX" />
+  <meta property="og:site_name"   content="Primavera Events Group" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --magenta:      #F65C7A;
+      --magenta-dark: #C9375A;
+      --gold:         #C9A24B;
+      --gold-light:   #E8C77A;
+      --black:        #1A1414;
+      --cream:        #FFF8F0;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Quicksand', sans-serif;
+      overflow: hidden;
+    }
+
+    #stage {
+      position: relative;
+      width: 100vw;
+      max-width: 440px;
+      height: 100vh;
+      max-height: 800px;
+      overflow: hidden;
+      box-shadow: 0 0 70px rgba(246,92,122,0.35);
+      background: var(--black);
+    }
+
+    .screen {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ═══════ SCREEN 1 — SOBRE (video) ═══════ */
+    #screen-sobre {
+      z-index: 10;
+      cursor: pointer;
+      background: var(--black);
+    }
+
+    #video-sobre {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .tap-hint {
+      position: absolute;
+      bottom: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255,248,240,0.94);
+      color: var(--magenta-dark);
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 11px 26px;
+      border-radius: 50px;
+      box-shadow: 0 4px 22px rgba(0,0,0,0.4);
+      white-space: nowrap;
+      animation: pulse-hint 1.7s ease-in-out infinite;
+      z-index: 20;
+      pointer-events: none;
+    }
+
+    @keyframes pulse-hint {
+      0%, 100% { transform: translateX(-50%) scale(1); }
+      50%       { transform: translateX(-50%) scale(1.06); }
+    }
+
+    .sobre-logo {
+      position: absolute;
+      top: 26px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 56px;
+      height: 56px;
+      opacity: 0.92;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+      z-index: 20;
+      pointer-events: none;
+    }
+
+    /* ═══════ SCREEN 2 — INVITACIÓN ═══════ */
+    #screen-invite {
+      z-index: 5;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(246,92,122,0.14) 0%, transparent 55%),
+        linear-gradient(180deg, #241A1A 0%, #1A1414 100%);
+      padding: 34px 26px 30px;
+      justify-content: flex-start;
+      overflow-y: auto;
+    }
+
+    #screen-invite.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .frame {
+      width: 100%;
+      max-width: 360px;
+      border: 1.5px solid rgba(201,162,75,0.55);
+      border-radius: 4px;
+      padding: 30px 22px 26px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .frame::before {
+      content: '';
+      position: absolute;
+      inset: 7px;
+      border: 1px solid rgba(201,162,75,0.3);
+      border-radius: 2px;
+      pointer-events: none;
+    }
+
+    .invite-logo {
+      width: 74px;
+      height: 74px;
+      margin-bottom: 14px;
+      filter: drop-shadow(0 2px 10px rgba(246,92,122,0.35));
+    }
+
+    .invite-brand {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 22px;
+    }
+
+    .invite-kicker {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 600;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--magenta);
+      margin-bottom: 10px;
+    }
+
+    .invite-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 1.15;
+      color: var(--cream);
+      margin-bottom: 16px;
+    }
+
+    .invite-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 4px 0 18px;
+    }
+
+    .invite-copy {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: rgba(255,248,240,0.85);
+      margin-bottom: 26px;
+    }
+
+    .invite-copy strong {
+      color: var(--cream);
+      font-weight: 700;
+    }
+
+    .details {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .detail-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .detail-label {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .detail-value {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.18rem;
+      color: var(--cream);
+    }
+
+    .detail-sub {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 500;
+      font-size: 0.82rem;
+      color: rgba(255,248,240,0.65);
+    }
+
+    #btn-ubicacion {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--magenta) 0%, var(--magenta-dark) 100%);
+      color: #fff;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 12px 26px;
+      border-radius: 40px;
+      text-decoration: none;
+      box-shadow: 0 6px 22px rgba(246,92,122,0.4);
+      margin-bottom: 24px;
+      letter-spacing: 0.02em;
+    }
+
+    #btn-ubicacion svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* Countdown */
+    #cd-label-top {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 600;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,248,240,0.55);
+      margin-bottom: 10px;
+    }
+
+    #countdown-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .cd-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid rgba(201,162,75,0.4);
+      border-radius: 8px;
+      padding: 8px 0;
+      flex: 1;
+      max-width: 66px;
+    }
+
+    .cd-num {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+
+    .cd-label {
+      font-size: 0.55rem;
+      color: rgba(255,248,240,0.55);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+    }
+
+    .cd-sep {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--magenta);
+      flex-shrink: 0;
+    }
+
+    #msg-finished { display: none; }
+    #msg-finished p {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--gold-light);
+    }
+
+    /* Mute toggle */
+    #btn-mute {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 30;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(26,20,20,0.55);
+      border: 1px solid rgba(201,162,75,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    #btn-mute svg { width: 18px; height: 18px; fill: var(--gold-light); }
+
+    @media (max-height: 680px) {
+      .invite-title { font-size: 1.7rem; }
+      .frame { padding: 22px 18px 20px; }
+      .details { gap: 10px; margin-bottom: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="stage">
+
+  <!-- ════ SCREEN 1: Sobre (video) ════ -->
+  <div id="screen-sobre">
+    <img class="sobre-logo" src="assets/logo_primavera.png" alt="Primavera Events Group" />
+    <video id="video-sobre" playsinline webkit-playsinline muted preload="auto">
+      <source src="assets/sobre.mp4" type="video/mp4" />
+    </video>
+    <div class="tap-hint" id="tap-hint">✉️ Toca para abrir tu invitación</div>
+  </div>
+
+  <!-- ════ SCREEN 2: Invitación ════ -->
+  <div id="screen-invite" class="screen">
+
+    <button id="btn-mute" aria-label="Silenciar música">
+      <svg id="icon-mute-on" viewBox="0 0 24 24"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+    </button>
+
+    <div class="frame">
+      <img class="invite-logo" src="assets/logo_primavera.png" alt="Primavera Events Group" />
+      <div class="invite-brand">Primavera Events Group</div>
+
+      <div class="invite-kicker">Estás cordialmente invitado</div>
+      <h1 class="invite-title">Brindis&nbsp;Especial</h1>
+      <div class="invite-divider"></div>
+
+      <p class="invite-copy">
+        <strong>Richard Hernández</strong> y <strong>Jessy Sandoval</strong><br />
+        te invitan a celebrar un momento especial para Primavera Events Group.
+      </p>
+
+      <div class="details">
+        <div class="detail-row">
+          <span class="detail-label">Fecha</span>
+          <span class="detail-value">Lunes 3 de Agosto, 2026</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Hora</span>
+          <span class="detail-value">5:00 — 6:00 PM</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Lugar</span>
+          <span class="detail-value">Centro de Convenciones Presidente</span>
+          <span class="detail-sub">Cuernavaca, Morelos</span>
+        </div>
+      </div>
+
+      <a id="btn-ubicacion" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Convenciones+Presidente+Cuernavaca+Morelos" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+        </svg>
+        Ver ubicación
+      </a>
+
+      <p id="cd-label-top">Faltan para el brindis</p>
+      <div id="countdown-wrap">
+        <div class="cd-block"><span class="cd-num" id="cd-days">00</span><span class="cd-label">días</span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-block"><span class="cd-num" id="cd-hours">00</span><span class="cd-label">hrs</span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-block"><span class="cd-num" id="cd-mins">00</span><span class="cd-label">min</span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-block"><span class="cd-num" id="cd-secs">00</span><span class="cd-label">seg</span></div>
+      </div>
+
+      <div id="msg-finished"><p>🥂 ¡Gracias por celebrar con nosotros!</p></div>
+    </div>
+  </div>
+
+</div>
+
+<audio id="audio-music" loop preload="auto">
+  <source src="assets/musica.m4a" type="audio/mp4" />
+</audio>
+
+<script>
+  /* ─── CONFIG ─── */
+  const EVENT_DATE = new Date('2026-08-03T17:00:00-06:00');
+
+  /* ─── DOM ─── */
+  const screenSobre  = document.getElementById('screen-sobre');
+  const screenInvite = document.getElementById('screen-invite');
+  const videoSobre   = document.getElementById('video-sobre');
+  const tapHint      = document.getElementById('tap-hint');
+  const audioMusic   = document.getElementById('audio-music');
+  const btnMute      = document.getElementById('btn-mute');
+  const cdDays  = document.getElementById('cd-days');
+  const cdHours = document.getElementById('cd-hours');
+  const cdMins  = document.getElementById('cd-mins');
+  const cdSecs  = document.getElementById('cd-secs');
+  const cdWrap  = document.getElementById('countdown-wrap');
+  const msgFinished = document.getElementById('msg-finished');
+
+  let musicMuted = false;
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function updateCountdown() {
+    const diff = EVENT_DATE.getTime() - Date.now();
+    if (diff <= 0) {
+      cdWrap.style.display = 'none';
+      document.getElementById('cd-label-top').style.display = 'none';
+      msgFinished.style.display = 'block';
+      return;
+    }
+    const totalSecs = Math.floor(diff / 1000);
+    cdDays.textContent  = pad(Math.floor(totalSecs / 86400));
+    cdHours.textContent = pad(Math.floor((totalSecs % 86400) / 3600));
+    cdMins.textContent  = pad(Math.floor((totalSecs % 3600) / 60));
+    cdSecs.textContent  = pad(totalSecs % 60);
+  }
+
+  /* ─── FLOW ─── */
+  screenSobre.addEventListener('click', () => {
+    tapHint.style.display = 'none';
+    videoSobre.muted = false; // el video no tiene pista de audio; la música ambienta la apertura
+    videoSobre.play().catch(() => {});
+    audioMusic.volume = 0.55;
+    audioMusic.play().catch(() => {});
+
+    videoSobre.addEventListener('ended', showInvite, { once: true });
+  });
+
+  function showInvite() {
+    screenInvite.classList.add('active');
+    setTimeout(() => {
+      screenSobre.style.opacity = '0';
+      screenSobre.style.pointerEvents = 'none';
+    }, 500);
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+
+  btnMute.addEventListener('click', () => {
+    musicMuted = !musicMuted;
+    audioMusic.muted = musicMuted;
+    btnMute.style.opacity = musicMuted ? '0.5' : '1';
+  });
+
+  /* Fuerza que se muestre el primer frame del sobre como "poster" */
+  videoSobre.addEventListener('loadedmetadata', () => {
+    videoSobre.currentTime = 0;
+  });
+
+  videoSobre.load();
+</script>
+</body>
+</html>
