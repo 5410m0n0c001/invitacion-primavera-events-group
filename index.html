@@ -22,20 +22,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <style>
+    /* ── Colores Corporativos Oficiales de Primavera Events Group ──
+       Fuente: base_de_datos_primavera.md → Manual de Branding    */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --magenta:      #F65C7A;
-      --magenta-dark: #C9375A;
-      --gold:         #C9A24B;
-      --gold-light:   #E8C77A;
-      --black:        #1A1414;
-      --cream:        #FFF8F0;
+      --rosa:        #F65C7A; /* Rosa Principal — acento primario, CTAs */
+      --rosa-claro:  #FF8FA3; /* Rosa Claro — decoraciones, degradados */
+      --oro:         #C9A96E; /* Oro Noble — bordes de lujo, gala */
+      --gris:        #6D6D6D; /* Gris Suave — texto de cuerpo */
+      --negro:       #1F1F1F; /* Negro Profundo — títulos, alto contraste */
+      --crema:       #FFFDF8; /* neutro claro de marca (fondo) */
     }
 
     html, body {
       height: 100%;
-      background: var(--black);
+      background: var(--negro);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -50,8 +52,8 @@
       height: 100vh;
       max-height: 800px;
       overflow: hidden;
-      box-shadow: 0 0 70px rgba(246,92,122,0.35);
-      background: var(--black);
+      box-shadow: 0 0 70px rgba(246,92,122,0.30);
+      background: var(--negro);
     }
 
     .screen {
@@ -67,7 +69,7 @@
     #screen-sobre {
       z-index: 10;
       cursor: pointer;
-      background: var(--black);
+      background: var(--negro);
     }
 
     #video-sobre {
@@ -82,8 +84,8 @@
       bottom: 48px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(255,248,240,0.94);
-      color: var(--magenta-dark);
+      background: var(--crema);
+      color: var(--rosa);
       font-family: 'Quicksand', sans-serif;
       font-weight: 700;
       font-size: 0.95rem;
@@ -108,21 +110,21 @@
       transform: translateX(-50%);
       width: 56px;
       height: 56px;
-      opacity: 0.92;
+      opacity: 0.95;
       filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
       z-index: 20;
       pointer-events: none;
     }
 
-    /* ═══════ SCREEN 2 — INVITACIÓN ═══════ */
+    /* ═══════ SCREEN 2 — INVITACIÓN (tarjeta clara) ═══════ */
     #screen-invite {
       z-index: 5;
       opacity: 0;
       pointer-events: none;
       transition: opacity 1s ease;
       background:
-        radial-gradient(circle at 50% 0%, rgba(246,92,122,0.14) 0%, transparent 55%),
-        linear-gradient(180deg, #241A1A 0%, #1A1414 100%);
+        radial-gradient(circle at 50% 0%, rgba(255,143,163,0.20) 0%, transparent 55%),
+        var(--crema);
       padding: 34px 26px 30px;
       justify-content: flex-start;
       overflow-y: auto;
@@ -136,7 +138,7 @@
     .frame {
       width: 100%;
       max-width: 360px;
-      border: 1.5px solid rgba(201,162,75,0.55);
+      border: 1.5px solid rgba(201,169,110,0.65);
       border-radius: 4px;
       padding: 30px 22px 26px;
       display: flex;
@@ -144,13 +146,14 @@
       align-items: center;
       text-align: center;
       position: relative;
+      background: rgba(255,255,255,0.5);
     }
 
     .frame::before {
       content: '';
       position: absolute;
       inset: 7px;
-      border: 1px solid rgba(201,162,75,0.3);
+      border: 1px solid rgba(201,169,110,0.35);
       border-radius: 2px;
       pointer-events: none;
     }
@@ -159,7 +162,7 @@
       width: 74px;
       height: 74px;
       margin-bottom: 14px;
-      filter: drop-shadow(0 2px 10px rgba(246,92,122,0.35));
+      filter: drop-shadow(0 2px 10px rgba(246,92,122,0.25));
     }
 
     .invite-brand {
@@ -168,7 +171,7 @@
       font-size: 0.68rem;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--gold-light);
+      color: var(--oro);
       margin-bottom: 22px;
     }
 
@@ -178,7 +181,7 @@
       font-size: 0.72rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--magenta);
+      color: var(--rosa);
       margin-bottom: 10px;
     }
 
@@ -187,14 +190,14 @@
       font-weight: 700;
       font-size: 2rem;
       line-height: 1.15;
-      color: var(--cream);
+      color: var(--negro);
       margin-bottom: 16px;
     }
 
     .invite-divider {
       width: 60px;
       height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      background: linear-gradient(90deg, transparent, var(--oro), transparent);
       margin: 4px 0 18px;
     }
 
@@ -203,12 +206,12 @@
       font-weight: 500;
       font-size: 0.95rem;
       line-height: 1.55;
-      color: rgba(255,248,240,0.85);
+      color: var(--gris);
       margin-bottom: 26px;
     }
 
     .invite-copy strong {
-      color: var(--cream);
+      color: var(--negro);
       font-weight: 700;
     }
 
@@ -233,28 +236,28 @@
       font-size: 0.62rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--oro);
     }
 
     .detail-value {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
       font-size: 1.18rem;
-      color: var(--cream);
+      color: var(--negro);
     }
 
     .detail-sub {
       font-family: 'Quicksand', sans-serif;
       font-weight: 500;
       font-size: 0.82rem;
-      color: rgba(255,248,240,0.65);
+      color: var(--gris);
     }
 
     #btn-ubicacion {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: linear-gradient(135deg, var(--magenta) 0%, var(--magenta-dark) 100%);
+      background: linear-gradient(135deg, var(--rosa) 0%, var(--rosa-claro) 100%);
       color: #fff;
       font-family: 'Quicksand', sans-serif;
       font-weight: 700;
@@ -262,7 +265,7 @@
       padding: 12px 26px;
       border-radius: 40px;
       text-decoration: none;
-      box-shadow: 0 6px 22px rgba(246,92,122,0.4);
+      box-shadow: 0 6px 22px rgba(246,92,122,0.35);
       margin-bottom: 24px;
       letter-spacing: 0.02em;
     }
@@ -276,7 +279,7 @@
       font-size: 0.65rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(255,248,240,0.55);
+      color: var(--gris);
       margin-bottom: 10px;
     }
 
@@ -292,7 +295,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      border: 1px solid rgba(201,162,75,0.4);
+      border: 1px solid rgba(201,169,110,0.5);
       border-radius: 8px;
       padding: 8px 0;
       flex: 1;
@@ -303,13 +306,13 @@
       font-family: 'Playfair Display', serif;
       font-weight: 700;
       font-size: 1.5rem;
-      color: var(--gold-light);
+      color: var(--negro);
       line-height: 1;
     }
 
     .cd-label {
       font-size: 0.55rem;
-      color: rgba(255,248,240,0.55);
+      color: var(--gris);
       text-transform: uppercase;
       letter-spacing: 0.08em;
       margin-top: 4px;
@@ -318,7 +321,7 @@
     .cd-sep {
       font-family: 'Playfair Display', serif;
       font-size: 1.2rem;
-      color: var(--magenta);
+      color: var(--rosa);
       flex-shrink: 0;
     }
 
@@ -327,7 +330,7 @@
       font-family: 'Playfair Display', serif;
       font-weight: 700;
       font-size: 1.1rem;
-      color: var(--gold-light);
+      color: var(--rosa);
     }
 
     /* Mute toggle */
@@ -339,15 +342,15 @@
       width: 38px;
       height: 38px;
       border-radius: 50%;
-      background: rgba(26,20,20,0.55);
-      border: 1px solid rgba(201,162,75,0.5);
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(201,169,110,0.6);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
     }
 
-    #btn-mute svg { width: 18px; height: 18px; fill: var(--gold-light); }
+    #btn-mute svg { width: 18px; height: 18px; fill: var(--rosa); }
 
     @media (max-height: 680px) {
       .invite-title { font-size: 1.7rem; }
@@ -430,7 +433,7 @@
 </div>
 
 <audio id="audio-music" loop preload="auto">
-  <source src="assets/musica.m4a" type="audio/mp4" />
+  <source src="assets/identidadsonora1.mp3" type="audio/mpeg" />
 </audio>
 
 <script>
