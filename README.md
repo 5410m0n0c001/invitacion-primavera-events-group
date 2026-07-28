@@ -41,7 +41,7 @@ La música es `identidadsonora1.mp3`, una de las 3 pistas oficiales de identidad
 - **Anfitriones:** Richard Hernández y Jessy Sandoval.
 - **Fecha:** Lunes 3 de agosto de 2026.
 - **Hora:** 5:00 p.m. – 6:00 p.m.
-- **Lugar:** Centro de Convenciones Presidente, Cuernavaca, Morelos.
+- **Lugar:** Centro de Convenciones Presidente — Av. Defensa Nacional #8, Col. Chamilpa, 62210 Cuernavaca, Morelos (dirección verificada en `primavera brain/venues/centro_convenciones_presidente.json` y en `base_de_datos_primavera.md`; no existe un nombre alterno "Salón Presidente" en la base de datos de PEG).
 
 ## Cómo verlo localmente
 
@@ -65,4 +65,4 @@ Para activarlo como página pública: Settings → Pages → Branch `main` / `ro
 - Sin dependencias externas salvo Google Fonts (Playfair Display + Quicksand).
 - Compatible con iOS Safari (`playsinline`, `webkit-playsinline`).
 - El contador regresivo apunta a `2026-08-03T17:00:00-06:00` (hora de Cuernavaca, Morelos).
-- El botón de ubicación abre una búsqueda de Google Maps del recinto (no se tenía un enlace de coordenadas exacto guardado).
+- El botón de ubicación abre una búsqueda de Google Maps con la dirección postal exacta del recinto (Av. Defensa Nacional #8, Col. Chamilpa, 62210 Cuernavaca, Morelos).
