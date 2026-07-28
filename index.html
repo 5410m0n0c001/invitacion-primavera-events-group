@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <meta name="theme-color" content="#F65C7A" />
 
   <!-- ── SEO ── -->
@@ -37,12 +37,14 @@
 
     html, body {
       height: 100%;
+      height: 100dvh;
       background: var(--negro);
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Quicksand', sans-serif;
       overflow: hidden;
+      overscroll-behavior: none;
     }
 
     #stage {
@@ -50,10 +52,16 @@
       width: 100vw;
       max-width: 440px;
       height: 100vh;
+      height: 100dvh;
       max-height: 800px;
       overflow: hidden;
       box-shadow: 0 0 70px rgba(246,92,122,0.30);
       background: var(--negro);
+    }
+
+    button, a, #screen-sobre {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
     }
 
     .screen {
@@ -81,7 +89,7 @@
 
     .tap-hint {
       position: absolute;
-      bottom: 48px;
+      bottom: calc(48px + env(safe-area-inset-bottom, 0px));
       left: 50%;
       transform: translateX(-50%);
       background: var(--crema);
@@ -125,9 +133,10 @@
       background:
         radial-gradient(circle at 50% 0%, rgba(255,143,163,0.20) 0%, transparent 55%),
         var(--crema);
-      padding: 34px 26px 30px;
+      padding: calc(34px + env(safe-area-inset-top, 0px)) 26px calc(30px + env(safe-area-inset-bottom, 0px));
       justify-content: flex-start;
       overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     #screen-invite.active {
