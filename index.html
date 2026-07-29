@@ -86,15 +86,20 @@
 
     /* ═══════ SCREEN 1 — SOBRE (video) ═══════ */
     #screen-sobre {
+      position: absolute;
+      inset: 0;
       z-index: 10;
       cursor: pointer;
       background: var(--negro);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     #video-sobre {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       object-position: center;
       display: block;
     }
